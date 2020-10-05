@@ -13,8 +13,6 @@ import (
 // Connection us the object of connection to the DB
 var Connection = ConnectDB()
 var uri = LoadDBVars()
-
-//var uri = "mongodb://dbadmin:sr3iE59qUg1TvV5d@mytwitter-shard-00-00.h1gia.mongodb.net:27017,mytwitter-shard-00-01.h1gia.mongodb.net:27017,mytwitter-shard-00-02.h1gia.mongodb.net:27017/twitter?replicaSet=atlas-8k9a0y-shard-0&ssl=true&authSource=admin"
 var clientOptions = options.Client().ApplyURI(uri)
 
 // LoadDBVars is a function that loads .env global variables

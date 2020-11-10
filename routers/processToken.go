@@ -12,8 +12,8 @@ import (
 // Email value of Email used in all the endpoints
 var Email string
 
-// IDUsuario value of ID return by the model, that it uses in the endpoints
-var IDUsuario string
+// userID value of ID return by the model, that it uses in the endpoints
+var userID string
 
 // ProcessToken process the token to extact its values
 func ProcessToken(token string) (*models.Claim, bool, string, error) {
@@ -35,9 +35,9 @@ func ProcessToken(token string) (*models.Claim, bool, string, error) {
 		_, found, _ := db.CheckUserExist(claims.Email)
 		if found == true {
 			Email = claims.Email
-			IDUsuario = claims.ID.Hex()
+			userID = claims.ID.Hex()
 		}
-		return claims, found, IDUsuario, nil
+		return claims, found, userID, nil
 	}
 	if !tkn.Valid {
 		return claims, false, string(""), errors.New("Invalid Token")
